@@ -25,6 +25,7 @@ app.post("/chat", async (req, res) => {
     prompt: prompt,
   });
   res.send(completion.data.choices[0].text);
+  console.log(completion.data.choices);
 });
 
 // Start the server
