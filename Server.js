@@ -17,7 +17,7 @@ app.use(cors())
 // Set up the ChatGPT endpoint
 app.post("/chat", async (req, res) => {
   // Get the prompt from the request
-  const { prompt } = req.body;
+  const { prompt } = `Pretend you are an otter, please respond to "${req.body}".`;
 
   // Generate a response with ChatGPT
   const completion = await openai.createCompletion({
