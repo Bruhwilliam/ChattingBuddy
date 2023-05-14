@@ -1,9 +1,12 @@
 import { useState } from "react";
 import Square from "./Square";
 import EndGame from "./Endgame";
+import { useOtterSettings } from "./data/otter"
+
 const INITIAL = "";
 const X_PLAYER = "X";
 const O_PLAYER = "O";
+var element = 0;
 const winCombination = [
   [0, 1, 2],
   [3, 4, 5],
@@ -24,10 +27,31 @@ const TicTacToe = () => {
     setGameFinished(false);
     setDraw(false);
   };
+  function checkEmpty(element)
+  {
+    if (element === "")
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+  }
   const handleClick = (id) => {
+    if (player)
+    {
+        var place_id = grid.findIndex(checkEmpty);
+        if(place_id !== -1)
+        {
+            id = place_id;
+        }
+    }
     setGrid(
       grid.map((item, index) => {
         if (index === id) {
+            console.log(element);
+            console.log(item);
           if (player) {
             return X_PLAYER;
           } else {
@@ -38,9 +62,10 @@ const TicTacToe = () => {
         }
       })
     );
-    setPlayer(!player);
+      setPlayer(!player);
   };
-  const isGameOver = () => {
+  const IsGameOver = () => {
+    const { addCredit } = useOtterSettings();
     if (!gameFinished) {
       for (let i = 0; i < 8; i++) {
         if (
@@ -59,6 +84,7 @@ const TicTacToe = () => {
           grid[winCombination[i][2]] === O_PLAYER
         ) {
           setGameFinished(true);
+          addCredit(1);
           return;
         }
       }
@@ -68,7 +94,7 @@ const TicTacToe = () => {
       }
     }
   };
-  isGameOver();
+  IsGameOver();
 
   return (
     <div>
