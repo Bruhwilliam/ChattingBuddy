@@ -11,12 +11,12 @@ function App() {
 
   return (
     <OtterContextProvider>
-      <div>
-        <Routes>
-          <Route path="/" element={<MainView />} />
-          <Route path="/store" element={<StoreView />} />
-          {/* <Route path="/game" element={<GameView/>} /> */}
-        </Routes>    </div>
+  <div>
+    <Routes>
+      <Route path="/" element={<MainView />} />
+      <Route path="/store" element={<StoreView />} />
+      <Route path="/game" element={<GameView/>} />
+    </Routes>    </div>
     </OtterContextProvider>
   );
 }
