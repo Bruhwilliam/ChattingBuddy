@@ -3,6 +3,7 @@ import { HealthBar } from "../components/healthbar"
 import { Dialogs } from "../components/dialog"
 import { Input } from "../components/input"
 import otter from "../assets/otter.png"
+import { Link } from "react-router-dom"
 import React, { useState, useContext } from "react"
 import { OtterContext, useOtterSettings } from "../data/otter"
 import "../styles/global.css"
@@ -20,7 +21,7 @@ const switchState = (state) => {
 const MainView = () => {
 
     const [showForm, setShowForm] = useState(false);
-    const { health, credit, changeHealth } = useOtterSettings();
+    const { health, credit } = useOtterSettings();
 
     return (
         <div id="bg">
@@ -47,9 +48,11 @@ const MainView = () => {
                 <button className="game-button b">
                     <img src={game}></img>
                 </button>
-                <button className="game-button c">
-                    <img src={food}></img>
-                </button>
+                <Link to="/store">
+                    <button className="game-button c">
+                        <img src={food}></img>
+                    </button>
+                </Link>
             </div>
         </div>
     )
