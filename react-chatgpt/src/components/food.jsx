@@ -5,6 +5,7 @@ import pizza from "../assets/pizza.png";
 import food_data from "../data/foodlist.json"
 import { Link } from "react-router-dom";
 import { useOtterSettings } from "../data/otter";
+import { animateIdle, animateEat, animateSleep } from '../animations/otter.js';
 
 const Credit = () => {
   return <img className="credit" src={credit_pic} alt="" />
@@ -20,6 +21,7 @@ const Food = ({ props }) => {
     if (credit >= price) {
       addHealth(price);
       addCredit(-price);
+      animateEat();
     }else{
       alert("Not enough credits!");
     }
