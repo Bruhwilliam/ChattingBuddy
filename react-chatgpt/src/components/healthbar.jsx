@@ -13,10 +13,10 @@ const HealthBar = ({h_level}) =>{
     return(
         <div className="flex-container bar">
         {
-        <Hearts count={h_level || 3}></Hearts>
+            <Hearts count={h_level || 3}></Hearts>
         }
         </div>)
-        ;
+    ;
 }
 
 

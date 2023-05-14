@@ -1,8 +1,8 @@
 import "../styles/global.css";
 import React from "react"
-
-
-const messages = [];
+import { useEffect } from "react";
+import { useContext } from "react";
+import { OtterContext,useOtterSettings } from "../data/otter";
 
 const SingleDialog = ({ props }) => {
     return (<div className="dialogBox">
@@ -11,20 +11,13 @@ const SingleDialog = ({ props }) => {
 };
 
 const Dialogs = () => {
+    const { responses } = useOtterSettings();
+    
     return (<div className="box-container">{
-        messages.map((message, i) => <SingleDialog props={message}></SingleDialog>)
-        }
-        </div>
-    )
+        responses.map((message, i) => <SingleDialog props={message}></SingleDialog>)
+    }
+    </div>
+    );
 };
 
-const insert_dialog = (response) => {
-    if (messages.length > 3)
-        messages.shift();
-    messages.push(response);
-};
-
-insert_dialog("I'm hungry!!!");
-insert_dialog("I'm hungry!!!");
-
-export { Dialogs, insert_dialog };
+export { Dialogs };
