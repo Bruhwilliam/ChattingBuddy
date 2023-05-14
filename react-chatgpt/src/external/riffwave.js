@@ -33,7 +33,7 @@ var FastBase64 = {
         var dst = '';
         var i = 0;
         while (len > 2) {
-            n = (src[i] << 16) | (src[i+1]<<8) | src[i+2];
+            var n = (src[i] << 16) | (src[i+1]<<8) | src[i+2];
             dst+= this.encLookup[n >> 12] + this.encLookup[n & 0xFFF];
             len-= 3;
             i+= 3;
@@ -130,3 +130,4 @@ var RIFFWAVE = function(data) {
 }; // end RIFFWAVE
 
 
+export default RIFFWAVE;

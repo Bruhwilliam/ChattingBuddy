@@ -6,9 +6,8 @@ import { StoreView } from './views/StoreView'
 import { GameView } from './views/GameView'
 import { OtterContextProvider } from './data/otter';
 import { Routes, Route } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
-function App() {
 
+function App() {
   return (
     <OtterContextProvider>
   <div>

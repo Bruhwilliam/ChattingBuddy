@@ -2,10 +2,9 @@ import React, { useState } from 'react';
 import axios from "axios";
 import "../styles/global.css"
 import { OtterContext, useOtterSettings } from '../data/otter';
-// import {preview} from "../utils/TextToSpeech";
+import Animalese from '../external/animalese';
 
 const Input = ({ }) => {
-
     const [prompt, setPrompt] = useState("");
     const [response, setResponse] = useState("");
     const { addResponse, health } = useOtterSettings();
@@ -34,6 +33,23 @@ const Input = ({ }) => {
                 // Update the response state with the server's response
                 setResponse(res.data.choices[0].text);
                 addResponse(res.data.choices[0].text);
+
+                var synth = new Animalese('animalese.wav', function () {
+                });
+
+                function generateWav() {
+                    return synth.Animalese("Pretend you are a otter, please respond to " + prompt,
+                        false,
+                        0).dataURI;
+                }
+
+                function preview() {
+                    var audio = new Audio();
+                    audio.src = generateWav();
+                    audio.play();
+                }
+
+                preview();
             })
             .catch((err) => {
                 console.error(err);
