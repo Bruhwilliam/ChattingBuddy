@@ -24,7 +24,7 @@ const StoreView = () => {
             
 
             <div className="flex-container">
-            <img style={{ "maxWidth": "400px", "maxHeight": "400px", "margin": "5rem auto", "display": "block" }} src={otter} alt=""></img>
+            <img style={{ "maxWidth": "400px", "maxHeight": "400px", "margin": "2rem auto", "display": "block" }} src={otter} alt=""></img>
             </div>
             </div>
             <FoodList></FoodList>
