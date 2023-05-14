@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import axios from "axios";
 import "../styles/global.css"
-import { insert_dialog } from './dialog';
-import { useContext } from 'react';
 import { OtterContext, useOtterSettings } from '../data/otter';
+// import {preview} from "../utils/TextToSpeech";
 
 const Input = ({ }) => {
+
     const [prompt, setPrompt] = useState("");
     const [response, setResponse] = useState("");
-    const { addResponse } = useOtterSettings();
+    const { addResponse, health } = useOtterSettings();
 
     const apiKey = "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";
     const client = axios.create({
@@ -21,7 +21,7 @@ const Input = ({ }) => {
         prompt: "Pretend you are a otter, please respond to " + prompt,
         model: "text-davinci-003",
         max_tokens: 40,
-        temperature: 0,
+        temperature: health / 10.0,
     };
 
     const handleSubmit = (e) => {
