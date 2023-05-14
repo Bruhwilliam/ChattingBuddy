@@ -1,21 +1,75 @@
-.heart{
+.heart {
     max-width: 50px;
     max-height: 50px;
-    margin:0.5rem;
+    margin: 0.5rem;
+}
+
+.dialogBox {
+    background-color: #EEECFF;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 40px;
+    max-width: 300px;
+    max-height: 60px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
 }
 
 .bar {
     padding-left: 1rem;
-    padding-right:1rem;
-    padding-top:0.25rem;
-    padding-bottom:0.25rem;
+    padding-right: 1rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
     background-color: #EEECFF;
     border-radius: 100px;
-    box-shadow: inset 5px 0px 5px 0px rgba(0,0,0,0.25);
-};
+    box-shadow: inset 5px 0px 5px 0px rgba(0, 0, 0, 0.25);
+}
 
-#otter-pic {
-    max-width: 50px;
-    max-height: 50px;
-    margin:0.5rem;
-};
+.box-container {
+    margin-top: 1rem;
+    margin-bottom: 10rem;
+}
+
+.game-button>img {
+    scale: 0.75;
+}
+
+.game-button {
+    border-radius: 50px;
+    box-sizing: content-box;
+    padding: 1rem;
+    border: none;
+    margin-top: 2rem;
+    background-color: rgb(222, 112, 86,0.8);
+    box-shadow: 2px 0px 5px 0px rgba(0, 0, 0, 0.25);
+}
+
+.game-button:hover{
+    background-color: rgb(222, 112, 86,1.0);
+    box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
+}
+
+.game-button img {
+    display: block;
+    width: 50px;
+    height: 50px;
+}
+
+/* .game-button.a {
+
+}
+
+.game-button.b {}
+
+.game-button.c {} */
+
+.button-list {
+    justify-content: center;
+    gap: 3rem;
+}
