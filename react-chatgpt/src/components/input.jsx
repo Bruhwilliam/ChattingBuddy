@@ -9,7 +9,8 @@ const Input = ({ }) => {
     const [response, setResponse] = useState("");
     const { addResponse, health } = useOtterSettings();
 
-    const apiKey = process.env.OPENAI_KEY;
+    const apiKey = process.env.REACT_APP_OPENAI_KEY;
+    console.log(apiKey)
     const client = axios.create({
         headers: {
             Authorization: "Bearer " + apiKey,
