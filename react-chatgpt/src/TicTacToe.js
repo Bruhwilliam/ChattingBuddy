@@ -17,6 +17,7 @@ const winCombination = [
   [0, 4, 8],
   [2, 4, 6],
 ];
+
 const TicTacToe = () => {
   const [grid, setGrid] = useState(Array(9).fill(INITIAL));
   const [player, setPlayer] = useState(false);
@@ -98,7 +99,7 @@ const TicTacToe = () => {
 
   return (
     <div>
-      <div className="player-turn">
+      <div className="player-turn" style={{"textAlign":"center"}}>
         Turn player: {player ? X_PLAYER : O_PLAYER}
       </div>
       {gameFinished && (

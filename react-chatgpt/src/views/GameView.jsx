@@ -12,16 +12,24 @@ import game from "../assets/game.svg"
 
 
 const GameView = () => {
+  const { health, credit } = useOtterSettings();
   return (
-    <div className="GameView">
+    <div className="flex-container" style={{ "position": "relative", "flex-direction": "column", "justifyContent": "center" }}>
+      <CreditsBar c_level={credit}></CreditsBar>
+      <div className="flex-container-fill"></div>
+      <HealthBar h_level={health}></HealthBar>
+
       <TicTacToe />
-        <Link to="/">
-            <button className="game-button b">
-                <img src={game}></img>
+      <Link to="/">
+          <div className="flex-container">
+            <button className="game-button b" style={{"margin":"auto","display": "block"}}>
+              <img src={game} ></img>
             </button>
-        </Link>
+          </div>
+     
+      </Link>
     </div>
   );
 };
-export {GameView};
+export { GameView };
 
