@@ -3,13 +3,17 @@ import { HealthBar } from "../components/healthbar"
 import { FoodList } from "../components/food"
 import { Dialogs } from "../components/dialog"
 import { useOtterSettings } from "../data/otter"
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import otter from "../assets/otter.png"
 import React from "react"
+import { animateIdle, animateEat, animateSleep } from '../animations/otter.js';
 import "../styles/global.css"
 
 const StoreView = () => {
     const { health, credit } = useOtterSettings();
+    useEffect(() => {
+        //animateIdle();
+    });
     return (
         <div id="bg">
             <div className="flex-container">
@@ -21,10 +25,10 @@ const StoreView = () => {
             <div className="flex-container">
                 <Dialogs></Dialogs>
                 <div className="flex-container-fill"></div>
-            
+
 
             <div className="flex-container">
-            <img style={{ "maxWidth": "400px", "maxHeight": "400px", "margin": "2rem auto", "display": "block" }} src={otter} alt=""></img>
+            <img id="otter" style={{ "maxWidth": "400px", "maxHeight": "400px", "margin": "2rem auto", "display": "block" }}  src="assets/sprite_00.png" alt=""></img>
             </div>
             </div>
             <FoodList></FoodList>

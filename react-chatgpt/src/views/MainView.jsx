@@ -25,6 +25,7 @@ const MainView = () => {
     const { health, credit } = useOtterSettings();
 
     useEffect(() => {
+        animateIdle();
         document.getElementById("bg").addEventListener("mouseenter", animateIdle);
         document.getElementById("bg").addEventListener("mouseleave", animateSleep);
     });

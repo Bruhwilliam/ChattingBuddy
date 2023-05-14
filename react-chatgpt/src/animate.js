@@ -1,13 +1,12 @@
 let _tags = [];
 let _fn;
-function startAnimation(tag, tags, img, src, animLength, fps, animFrame = 0, initial = null) {
+function startAnimation(tag, tags, img, src, animLength, fps, animFrame = 0, initial = 0) {
 	let drawFrame = 0;
 	console.log(!_tags.includes(tag), tag);
 	if (_tags.includes(tag)) return;
 	_tags = tags;
-	if (initial !== null) {
-		img.src = src.replaceAll('%s', String(initial).padStart(2, '0'));
-	}
+	img.src = src.replaceAll('%s', String(initial).padStart(2, '0'));
+	img.dataset.initialFrameSrc = img.src;
 	function step(ts) {
 		if (!_tags.includes(tag)) return;
 		drawFrame++;
