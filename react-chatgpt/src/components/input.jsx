@@ -34,11 +34,11 @@ const Input = ({ }) => {
                 setResponse(res.data.choices[0].text);
                 addResponse(res.data.choices[0].text);
 
-                var synth = new Animalese('animalese.wav', function () {
+                var synth = new Animalese('../assets/animalese.wav', function () {
                 });
 
                 function generateWav() {
-                    return synth.Animalese("Pretend you are a otter, please respond to " + prompt,
+                    return synth.Animalese('Hi, I am an otter!',
                         false,
                         0).dataURI;
                 }

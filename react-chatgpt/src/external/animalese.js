@@ -27,6 +27,7 @@ var Animalese = function(letters_file, onload) {
     var output_samples_per_letter =
         Math.floor(output_letter_secs * sample_freq);
 
+    setTimeout(()=> {
     for (var c_index = 0; c_index < processed_script.length; c_index++) {
       var c = processed_script.toUpperCase()[c_index];
       if (c >= 'A' && c <= 'Z') {
@@ -43,12 +44,12 @@ var Animalese = function(letters_file, onload) {
         }
       }
     }
+    },1000);
 
     var wave = new RIFFWAVE();
     wave.header.sampleRate = sample_freq;
     wave.header.numChannels = 1;
     wave.Make(data);
-
     return wave;
   }
 
