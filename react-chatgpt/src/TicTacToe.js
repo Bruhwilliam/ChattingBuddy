@@ -28,31 +28,26 @@ const TicTacToe = () => {
     setGameFinished(false);
     setDraw(false);
   };
-  function checkEmpty(element)
-  {
-    if (element === "")
-    {
-        return true;
+  function checkEmpty(element) {
+    if (element === "") {
+      return true;
     }
-    else
-    {
-        return false;
+    else {
+      return false;
     }
   }
   const handleClick = (id) => {
-    if (player)
-    {
-        var place_id = grid.findIndex(checkEmpty);
-        if(place_id !== -1)
-        {
-            id = place_id;
-        }
+    if (player) {
+      var place_id = grid.findIndex(checkEmpty);
+      if (place_id !== -1) {
+        id = place_id;
+      }
     }
     setGrid(
       grid.map((item, index) => {
         if (index === id) {
-            console.log(element);
-            console.log(item);
+          console.log(element);
+          console.log(item);
           if (player) {
             return X_PLAYER;
           } else {
@@ -63,7 +58,7 @@ const TicTacToe = () => {
         }
       })
     );
-      setPlayer(!player);
+    setPlayer(!player);
   };
   const IsGameOver = () => {
     const { addCredit } = useOtterSettings();
@@ -99,7 +94,7 @@ const TicTacToe = () => {
 
   return (
     <div>
-      <div className="player-turn" style={{"textAlign":"center"}}>
+      <div className="player-turn" style={{ "textAlign": "center" }}>
         Turn player: {player ? X_PLAYER : O_PLAYER}
       </div>
       {gameFinished && (

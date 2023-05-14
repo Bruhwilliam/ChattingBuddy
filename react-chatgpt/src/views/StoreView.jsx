@@ -1,6 +1,7 @@
 import { CreditsBar } from "../components/creditsbar"
 import { HealthBar } from "../components/healthbar"
 import { FoodList } from "../components/food"
+import { Dialogs } from "../components/dialog"
 import { useOtterSettings } from "../data/otter"
 import { useContext } from "react"
 import otter from "../assets/otter.png"
@@ -16,8 +17,15 @@ const StoreView = () => {
                 <div className="flex-container-fill"></div>
                 <HealthBar h_level={health}></HealthBar>
             </div>
+
+            <div className="flex-container">
+                <Dialogs></Dialogs>
+                <div className="flex-container-fill"></div>
+            
+
             <div className="flex-container">
             <img style={{ "maxWidth": "400px", "maxHeight": "400px", "margin": "5rem auto", "display": "block" }} src={otter} alt=""></img>
+            </div>
             </div>
             <FoodList></FoodList>
         </div>)

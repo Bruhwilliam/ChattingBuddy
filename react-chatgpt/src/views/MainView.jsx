@@ -32,13 +32,13 @@ const MainView = () => {
             </div>
 
 
-            <div className="flex-container">
+            <div className="flex-container" id="chatbox">
                 <Dialogs></Dialogs>
                 <div className="flex-container-fill"></div>
                 {showForm ? <Input></Input> : null}
             </div>
 
-            <img style={{ "maxHeight": "300px", "margin": "0 auto", "display": "block" }} src={otter} alt=""></img>
+            <img style={{"margin-top":"5rem","maxHeight": "400px", "margin": "0 auto", "display": "block" }} src={otter} alt=""></img>
             <div className="flex-container button-list">
                 <button className="game-button a" onClick={() => {
                     setShowForm(switchState(showForm));
@@ -46,9 +46,9 @@ const MainView = () => {
                     <img src={chat}></img>
                 </button>
                 <Link to="/game">
-                <button className="game-button b">
-                    <img src={game}></img>
-                </button>
+                    <button className="game-button b">
+                        <img src={game}></img>
+                    </button>
                 </Link>
                 <Link to="/store">
                     <button className="game-button c">
