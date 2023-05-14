@@ -5,7 +5,7 @@ const CreditsBar = ({c_level}) =>{
     return(
         <div className="flex-container bar">
         {
-        <Credits count={c_level || 3}></Credits>
+        <Credits count={c_level}></Credits>
         }
         </div>)
         ;

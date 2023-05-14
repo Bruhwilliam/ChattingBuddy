@@ -17,7 +17,7 @@ const StoreView = () => {
                 <HealthBar h_level={health}></HealthBar>
             </div>
             <div className="flex-container">
-            <img style={{ "maxWidth": "500px", "maxHeight": "600px", "margin": "0 auto", "display": "block" }} src={otter} alt=""></img>
+            <img style={{ "maxWidth": "400px", "maxHeight": "400px", "margin": "5rem auto", "display": "block" }} src={otter} alt=""></img>
             </div>
             <FoodList></FoodList>
         </div>)
