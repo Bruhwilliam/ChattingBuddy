@@ -26,7 +26,10 @@ const MainView = () => {
     const { health, credit,addHealth} = useOtterSettings();
 
     setInterval(()=>{
-        addHealth(-1);
+        if(health>0)
+            addHealth(-1);
+        else
+            alert("Health is 0, you died!");
     },30*1000);
 
     useEffect(() => {
