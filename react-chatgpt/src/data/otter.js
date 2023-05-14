@@ -1,12 +1,12 @@
 import React,{ createContext,useState,useContext } from "react";
 
-export const OtterContext = createContext({ health:3, credit:3,responses:[],changeHealth:()=>{},changeCredit:()=>{},addResponse:()=>{}
+export const OtterContext = createContext({ health:3, credit:3,responses:["Hi there! I'm Otter!"],changeHealth:()=>{},changeCredit:()=>{},addResponse:()=>{}
 });
 
 export const OtterContextProvider = ({children}) => {
     const [health,setHealth] = useState(3);
     const [credit,setCredit] = useState(3);
-    const [responses,setResponses] = useState([]);
+    const [responses,setResponses] = useState(["Hi there! I'm Otter!"]);
     
     const changeHealth=(newHealth)=>{
       setHealth(newHealth);
@@ -18,7 +18,9 @@ export const OtterContextProvider = ({children}) => {
 
     const addResponse=(newResponse)=>{
       responses.push(newResponse);
-      setResponses([...responses,newResponse]);
+      if(responses.length>3)
+        responses.shift();
+      setResponses([...responses]);
     }
 
     const value = {health,credit,responses,changeHealth,changeCredit,addResponse};
