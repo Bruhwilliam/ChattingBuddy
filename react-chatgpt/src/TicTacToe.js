@@ -4,6 +4,7 @@ import EndGame from "./Endgame";
 const INITIAL = "";
 const X_PLAYER = "X";
 const O_PLAYER = "O";
+var element = 0;
 const winCombination = [
   [0, 1, 2],
   [3, 4, 5],
@@ -24,10 +25,31 @@ const TicTacToe = () => {
     setGameFinished(false);
     setDraw(false);
   };
+  function checkEmpty(element)
+  {
+    if (element === "")
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+  }
   const handleClick = (id) => {
+    if (player)
+    {
+        var place_id = grid.findIndex(checkEmpty);
+        if(place_id !== -1)
+        {
+            id = place_id;
+        }
+    }
     setGrid(
       grid.map((item, index) => {
         if (index === id) {
+            console.log(element);
+            console.log(item);
           if (player) {
             return X_PLAYER;
           } else {
@@ -38,7 +60,7 @@ const TicTacToe = () => {
         }
       })
     );
-    setPlayer(!player);
+      setPlayer(!player);
   };
   const isGameOver = () => {
     if (!gameFinished) {
