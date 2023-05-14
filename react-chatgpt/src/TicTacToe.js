@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Square from "./Square";
 import EndGame from "./Endgame";
+import { useOtterSettings } from "../data/otter"
+
 const INITIAL = "";
 const X_PLAYER = "X";
 const O_PLAYER = "O";
@@ -63,6 +65,7 @@ const TicTacToe = () => {
       setPlayer(!player);
   };
   const isGameOver = () => {
+    const { addCredit } = useOtterSettings();
     if (!gameFinished) {
       for (let i = 0; i < 8; i++) {
         if (
@@ -81,6 +84,7 @@ const TicTacToe = () => {
           grid[winCombination[i][2]] === O_PLAYER
         ) {
           setGameFinished(true);
+          addCredit(1)
           return;
         }
       }
