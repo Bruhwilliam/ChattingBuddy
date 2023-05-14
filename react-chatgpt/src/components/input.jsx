@@ -25,7 +25,6 @@ const Input = ({ }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(params.prompt);
         // Send a request to the server with the prompt
         client
             .post("https://api.openai.com/v1/completions", params)
@@ -37,18 +36,27 @@ const Input = ({ }) => {
                 var synth = new Animalese('../assets/animalese.wav', function () {
                 });
 
-                function generateWav() {
-                    return synth.Animalese('Hi, I am an otter!',
-                        false,
-                        0).dataURI;
+                async function generateWav() {
+                    return synth.Animalese(params.prompt,
+                        true,
+                        2).then(data => data.dataURI);
                 }
 
-                function preview() {
-                    var audio = new Audio();
-                    audio.src = generateWav();
-                    audio.play();
-                }
+                async function preview() {
+                    
+                    var src = await generateWav();
+                    var audio = new Audio(src);
+                    const promise = audio.play();
 
+                    if (promise !== undefined) { 
+                        promise.then(() => {
+                            console.log("Audio is playing.");
+                        })
+                        .catch(error => {
+                            console.log(error);
+                        });
+                    }
+                }
                 preview();
             })
             .catch((err) => {
