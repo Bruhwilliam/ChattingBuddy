@@ -21,8 +21,13 @@ const switchState = (state) => {
 
 const MainView = () => {
 
+
     const [showForm, setShowForm] = useState(false);
-    const { health, credit } = useOtterSettings();
+    const { health, credit,addHealth} = useOtterSettings();
+
+    setInterval(()=>{
+        addHealth(-1);
+    },30*1000);
 
     useEffect(() => {
         animateIdle();
