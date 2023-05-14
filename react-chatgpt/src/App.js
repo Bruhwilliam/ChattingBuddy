@@ -1,13 +1,13 @@
 import './App.css';
 import React, { useState } from 'react';
 import axios from "axios"
-import {MainView} from './views/MainView'
-import {StoreView} from './views/StoreView'
-import {GameView} from './views/GameView'
+import { MainView } from './views/MainView'
+import { StoreView } from './views/StoreView'
+import { GameView } from './views/GameView'
 import { OtterContextProvider } from './data/otter';
 import { Routes, Route } from 'react-router-dom';
+
 function App() {
-  
   return (
     <OtterContextProvider>
   <div>

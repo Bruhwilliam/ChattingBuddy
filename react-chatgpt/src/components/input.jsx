@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import axios from "axios";
 import "../styles/global.css"
-import { insert_dialog } from './dialog';
-import { useContext } from 'react';
 import { OtterContext, useOtterSettings } from '../data/otter';
+import Animalese from '../external/animalese';
 
 const Input = ({ }) => {
     const [prompt, setPrompt] = useState("");
     const [response, setResponse] = useState("");
-    const { addResponse } = useOtterSettings();
+    const { addResponse, health } = useOtterSettings();
 
     const apiKey = "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";
     const client = axios.create({
@@ -21,7 +20,7 @@ const Input = ({ }) => {
         prompt: "Pretend you are a otter, please respond to " + prompt,
         model: "text-davinci-003",
         max_tokens: 40,
-        temperature: 0,
+        temperature: health / 10.0,
     };
 
     const handleSubmit = (e) => {
@@ -34,6 +33,23 @@ const Input = ({ }) => {
                 // Update the response state with the server's response
                 setResponse(res.data.choices[0].text);
                 addResponse(res.data.choices[0].text);
+
+                var synth = new Animalese('../assets/animalese.wav', function () {
+                });
+
+                function generateWav() {
+                    return synth.Animalese('Hi, I am an otter!',
+                        false,
+                        0).dataURI;
+                }
+
+                function preview() {
+                    var audio = new Audio();
+                    audio.src = generateWav();
+                    audio.play();
+                }
+
+                preview();
             })
             .catch((err) => {
                 console.error(err);
