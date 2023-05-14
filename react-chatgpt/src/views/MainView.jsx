@@ -45,9 +45,11 @@ const MainView = () => {
                 }}>
                     <img src={chat}></img>
                 </button>
+                <Link to="/game">
                 <button className="game-button b">
                     <img src={game}></img>
                 </button>
+                </Link>
                 <Link to="/store">
                     <button className="game-button c">
                         <img src={food}></img>

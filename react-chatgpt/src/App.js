@@ -14,7 +14,7 @@ function App() {
     <Routes>
       <Route path="/" element={<MainView />} />
       <Route path="/store" element={<StoreView />} />
-      {/* <Route path="/game" element={<GameView/>} /> */}
+      <Route path="/game" element={<GameView/>} />
     </Routes>    </div>
     </OtterContextProvider>
   );
