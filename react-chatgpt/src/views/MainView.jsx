@@ -21,7 +21,6 @@ const switchState = (state) => {
 
 const MainView = () => {
 
-
     const [showForm, setShowForm] = useState(false);
     const { health, credit,addHealth} = useOtterSettings();
 
