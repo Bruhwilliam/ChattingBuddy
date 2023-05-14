@@ -1,6 +1,9 @@
 import './App.css';
 import React, { useState } from 'react';
 import axios from "axios"
+import {MainView} from './views/MainView'
+import {StoreView} from './views/StoreView'
+
 function App() {
   const [prompt, setPrompt] = useState("");
   const [response, setResponse] = useState("");
@@ -31,6 +34,9 @@ function App() {
         <button type="submit">Submit</button>
       </form>
       <p>{response}</p>
+
+    <MainView>
+    </MainView>
     </div>
   );
 }

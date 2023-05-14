@@ -1,0 +1,19 @@
+{
+    "food":[
+        {
+            "name":"Pizza",
+            "price":2,
+            "url":"./assets/pizza.png"
+        },
+        {
+            "name":"Burger",
+            "price":1,
+            "url":"./assets/burger.png"
+        },
+        {
+            "name":"Burger XL",
+            "price":3,
+            "url":"./assets/burger.png"
+        }
+    ]
+}
